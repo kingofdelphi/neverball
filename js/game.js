@@ -142,8 +142,8 @@ function Game(container_id, options) {
 
     var createMenu = function() {
         btnlist = [];
-        btnlist.push(new Button(0, 0, btn_width, "PLAY"));
-        btnlist.push(new Button(0, 0, btn_width, "DEMO"));
+        btnlist.push(new Button(0, 0, btn_width, "PLAY DEMO"));
+        btnlist.push(new Button(0, 0, btn_width, "PLAY CUSTOM LEVEL"));
         btnlist.push(new Button(0, 0, btn_width, "HELP"));
         btnlist.push(new Button(0, 0, btn_width, "ABOUT"));
         centerize(btnlist);
@@ -186,12 +186,12 @@ function Game(container_id, options) {
         if (e.keyCode == KEY_ENTER) {
             wrapper.exit();
             if (state == MENU) {
-                if (menu_sel == 0) {
+                if (menu_sel == 1) {
                     wrapper.onexit = function() {
                         state = LEVEL_LIST;
                         wrapper.enter();
                     }
-                } else if (menu_sel == 1) {
+                } else if (menu_sel == 0) {
                     wrapper.onexit = function() {
                         //exportLevel('neverball');
                         var lvl = getDemoLevel("neverball");
